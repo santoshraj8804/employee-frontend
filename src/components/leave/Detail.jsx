@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
+      const url = process.env.BACKEND_URL;
 
 
 const Detail = () => {
@@ -12,7 +13,7 @@ const Detail = () => {
     useEffect(() => {
     const fetchLeave = async () => {
       try {
-        const response = await axios.get(`https://employee-backend-beta.vercel.app/api/leave/detail/${id}`, {
+        const response = await axios.get(`${url}/api/leave/detail/${id}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
           }
@@ -31,7 +32,7 @@ const Detail = () => {
 
   const changeStatus = async(id, status) => {
         try {
-        const response = await axios.put(`https://employee-backend-beta.vercel.app/api/leave/${id}`, {status},  {
+        const response = await axios.put(`${url}/api/leave/${id}`, {status},  {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
           }
@@ -55,7 +56,7 @@ const Detail = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         <div>
         <img 
-            src={`https://employee-backend-beta.vercel.app/${leave.employeeId.userId.profileImage}`} 
+            src={`${url}/${leave.employeeId.userId.profileImage}`} 
             className='rounded-full border h-72 w-72'
         />
       </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
+const url = process.env.BACKEND_URL;
+
 
 const View = () => {
 
@@ -11,7 +13,8 @@ const View = () => {
     useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const response = await axios.get(`https://employee-backend-beta.vercel.app/api/employee/${id}`, {
+        const url = process.env.BACKEND_URL;
+        const response = await axios.get(`${url}/api/employee/${id}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
           }
@@ -36,7 +39,7 @@ const View = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         <div>
         <img 
-            src={`https://employee-backend-beta.vercel.app/${employee.userId.profileImage}`} 
+            src={`${url}/${employee.userId.profileImage}`} 
             alt={employee.userId.name} 
             className='rounded-full border h-72 w-72'
         />

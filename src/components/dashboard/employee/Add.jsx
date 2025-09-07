@@ -35,7 +35,8 @@ const Add = () => {
         })
         
         try {
-            const response = await axios.post('https://employee-backend-beta.vercel.app/api/employee/add', formDataObj, {
+            const url = process.env.BACKEND_URL;
+            const response = await axios.post(`${url}/api/employee/add`, formDataObj, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

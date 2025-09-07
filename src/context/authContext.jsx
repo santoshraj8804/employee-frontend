@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react'
 import axios from 'axios';
+      const url = process.env.BACKEND_URL;
 
 const userContext = createContext();
 
@@ -18,7 +19,7 @@ const authContext = ({children}) => {
             try {
                 const token = localStorage.getItem('token');
                 if(token) {
-                    const response = await axios.get('https://employee-backend-beta.vercel.app/api/auth/verify', {
+                    const response = await axios.get(`${url}/api/auth/verify`, {
                         headers: {
                             "Authorization" : `Bearer ${localStorage.getItem('token')}`
                         }

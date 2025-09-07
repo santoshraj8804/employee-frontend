@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+      const url = process.env.BACKEND_URL;
 
 
 export const columns = [
@@ -26,7 +27,7 @@ export const DepartmentButtons = ({_id, onDepartmentDelete}) => {
         const confirm = window.confirm("Are you sure you want to delete this department?");
         if(confirm) {
         try {
-        const response = await axios.delete(`https://employee-backend-beta.vercel.app/api/department/${id}`, {
+        const response = await axios.delete(`${url}/api/department/${id}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
           }

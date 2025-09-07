@@ -15,7 +15,7 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post(
-                'https://employee-backend-beta.vercel.app/api/auth/login',
+                'https://employee-backend-iqkm.onrender.com/api/auth/login',
                 { email, password }
             );
             if(response.data.success) {

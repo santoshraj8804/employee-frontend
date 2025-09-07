@@ -14,13 +14,15 @@ const List = () => {
     const fetchEmployees = async () => {
       setEmpLoading(true)
       try {
-        const response = await axios.get('https://employee-backend-beta.vercel.app/api/employee', {
+        const url = process.env.BACKEND_URL;
+        const response = await axios.get(`${url}.app/api/employee`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
           }
         });
         if(response.data.success) {
           let sno = 1
+          const url = process.env.BACKEND_URL;
           const data = await response.data.employees.map((emp) => (
             {
               _id: emp._id,
@@ -28,7 +30,7 @@ const List = () => {
               dep_name: emp.department.dep_name,
               name: emp.userId.name,
               dob: new Date(emp.dob).toLocaleDateString(),
-              profileImage: <img src={`https://employee-backend-beta.vercel.app/${emp.userId.profileImage}`} alt={emp.userId.name} className='w-10 h-10' />,
+              profileImage: <img src={`${url}/${emp.userId.profileImage}`} alt={emp.userId.name} className='w-10 h-10' />,
               action: (<EmployeeButtons _id={emp._id} />),
             }
           ))

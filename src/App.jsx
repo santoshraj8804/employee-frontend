@@ -20,7 +20,8 @@ import AddLeave from './components/leave/Add'
 import Setting from './components/EmployeeDashboard/Setting'
 import Table from './components/leave/Table'
 import Detail from './components/leave/Detail'
-
+import dotenv from "dotenv";
+dotenv.config();
 function App() {
 
   return (

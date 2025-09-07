@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useAuth } from '../../context/authContext'
+      const url = process.env.BACKEND_URL;
 
 const List = () => {
       const [leaves, setLeaves] = useState(null);
@@ -12,7 +13,7 @@ const List = () => {
       
       const fetchLeaves = async () => {
         try {
-          const response = await axios.get(`https://employee-backend-beta.vercel.app/api/leave/${id}/${user.role}`, {
+          const response = await axios.get(`${url}/api/leave/${id}/${user.role}`, {
             headers: {
               "Authorization": `Bearer ${localStorage.getItem('token')}`
             }

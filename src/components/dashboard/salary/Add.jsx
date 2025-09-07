@@ -39,7 +39,8 @@ const Add = () => {
         e.preventDefault();
         
         try {
-            const response = await axios.post(`https://employee-backend-beta.vercel.app/api/salary/add`, salary, {
+            const url = process.env.BACKEND_URL;
+            const response = await axios.post(`${url}/api/salary/add`, salary, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

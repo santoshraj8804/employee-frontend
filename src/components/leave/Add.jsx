@@ -20,7 +20,9 @@ const Add = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://employee-backend-beta.vercel.app/api/leave/add', leave,  {
+                const url = process.env.BACKEND_URL;
+
+            const response = await axios.post(`${url}/api/leave/add`, leave,  {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

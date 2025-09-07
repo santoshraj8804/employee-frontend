@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component';
 import { columns } from '../../utils/LeaveHelper';
 import axios from 'axios';
 import { LeaveButtons } from '../../utils/LeaveHelper';
+      const url = process.env.BACKEND_URL;
 
 
 const Table = () => {
@@ -12,7 +13,7 @@ const Table = () => {
 
     const fetchLeaves = async () => {
         try {
-        const response = await axios.get('https://employee-backend-beta.vercel.app/api/leave', {
+        const response = await axios.get(`${url}/api/leave`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
           }
