@@ -14,7 +14,7 @@ const EditDepartment = () => {
     const fetchDepartments = async () => {
       setDepLoading(true)
       try {
-        const url = process.env.BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}/api/department/${id}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -42,7 +42,7 @@ const EditDepartment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = process.env.BACKEND_URL;
+      const url = import.meta.env.VITE_BACKEND_URL;
       const response = await axios.put(`${url}/api/department/${id}`, department, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`

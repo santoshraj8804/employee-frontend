@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-      const url = process.env.BACKEND_URL;
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 export const columns = [
     {

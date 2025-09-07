@@ -21,7 +21,7 @@ const DepartmentList = () => {
     const fetchDepartments = async () => {
       setDepLoading(true)
       try {
-        const url = process.env.BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}/api/department`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-const url = process.env.BACKEND_URL;
+const url = import.meta.env.VITE_BACKEND_URL;
 
 
 const View = () => {
@@ -13,7 +13,7 @@ const View = () => {
     useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const url = process.env.BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}/api/employee/${id}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`

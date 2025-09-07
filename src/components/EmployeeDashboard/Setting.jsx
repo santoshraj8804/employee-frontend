@@ -27,7 +27,7 @@ const Setting = () => {
             setError('New password and confirm password do not match');
         } else {
             try {
-                const url = process.env.BACKEND_URL;
+                const url = import.meta.env.VITE_BACKEND_URL;
                 const response = await axios.put(`${url}/api/setting/change-password`, setting, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`

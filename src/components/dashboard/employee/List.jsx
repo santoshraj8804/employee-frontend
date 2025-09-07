@@ -14,7 +14,7 @@ const List = () => {
     const fetchEmployees = async () => {
       setEmpLoading(true)
       try {
-        const url = process.env.BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}.app/api/employee`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -22,7 +22,7 @@ const List = () => {
         });
         if(response.data.success) {
           let sno = 1
-          const url = process.env.BACKEND_URL;
+          const url = import.meta.env.VITE_BACKEND_URL;
           const data = await response.data.employees.map((emp) => (
             {
               _id: emp._id,

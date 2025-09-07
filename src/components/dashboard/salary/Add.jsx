@@ -39,7 +39,7 @@ const Add = () => {
         e.preventDefault();
         
         try {
-            const url = process.env.BACKEND_URL;
+            const url = import.meta.env.VITE_BACKEND_URL;
             const response = await axios.post(`${url}/api/salary/add`, salary, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`

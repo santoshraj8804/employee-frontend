@@ -4,14 +4,13 @@ import SummaryCard from './SummaryCard'
 import { useEffect } from 'react';
 import axios from 'axios';
 
-
 const AdminSummary = () => {
   const [summary, setSummary] = useState(null);
 
   useEffect(() => {
     const fetchSummary = async () => {
       try {
-        const url = process.env.BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const summary = await axios.get(`${url}/api/dashboard/summary`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`

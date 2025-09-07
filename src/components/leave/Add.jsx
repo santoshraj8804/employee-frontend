@@ -20,7 +20,7 @@ const Add = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-                const url = process.env.BACKEND_URL;
+                const url = import.meta.env.VITE_BACKEND_URL;
 
             const response = await axios.post(`${url}/api/leave/add`, leave,  {
                 headers: {

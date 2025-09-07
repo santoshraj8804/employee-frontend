@@ -35,7 +35,7 @@ const Add = () => {
         })
         
         try {
-            const url = process.env.BACKEND_URL;
+            const url = import.meta.env.VITE_BACKEND_URL;
             const response = await axios.post(`${url}/api/employee/add`, formDataObj, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`

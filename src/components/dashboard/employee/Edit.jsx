@@ -27,7 +27,7 @@ const Edit = () => {
     useEffect(() => {
         const fetchEmployee = async () => {
       try {
-        const url = process.env.BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}/api/employee/${id}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
@@ -56,7 +56,7 @@ const Edit = () => {
         e.preventDefault();
         
         try {
-            const url = process.env.BACKEND_URL;
+            const url = import.meta.env.VITE_BACKEND_URL;
             const response = await axios.put(`${url}/api/employee/${id}`, employee, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`

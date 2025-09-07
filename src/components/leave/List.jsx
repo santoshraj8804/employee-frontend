@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useAuth } from '../../context/authContext'
-      const url = process.env.BACKEND_URL;
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const List = () => {
       const [leaves, setLeaves] = useState(null);

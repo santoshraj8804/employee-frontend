@@ -13,7 +13,7 @@ const View = () => {
 
     const fetchSalaries = async () => {
       try {
-        const url = process.env.BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}/api/salary/${id}/${user.role}`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`

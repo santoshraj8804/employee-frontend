@@ -3,7 +3,8 @@ import DataTable from 'react-data-table-component';
 import { columns } from '../../utils/LeaveHelper';
 import axios from 'axios';
 import { LeaveButtons } from '../../utils/LeaveHelper';
-      const url = process.env.BACKEND_URL;
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 
 const Table = () => {

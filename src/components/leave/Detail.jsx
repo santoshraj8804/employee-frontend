@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-      const url = process.env.BACKEND_URL;
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 
 const Detail = () => {

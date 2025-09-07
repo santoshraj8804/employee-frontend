@@ -4,7 +4,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react'
 import axios from 'axios';
-      const url = process.env.BACKEND_URL;
+
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const userContext = createContext();
 
